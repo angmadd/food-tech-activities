@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Technology — NESA Verb Activities</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f5f5f3;color:#1a1a18;line-height:1.6;padding:1.5rem}
+h1{font-size:20px;font-weight:500;margin-bottom:4px}
+.meta{font-size:13px;color:#5f5e5a;margin-bottom:1.5rem}
+.nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.5rem}
+.nb{padding:7px 14px;border:1px solid #ccc;border-radius:8px;font-size:13px;cursor:pointer;background:#fff;color:#5f5e5a;font-family:inherit}
+.nb:hover{background:#f1efe8}
+.nb.on{background:#e8e8e8;color:#1a1a18;font-weight:500;border-color:#999}
+.pnl{display:none}.pnl.on{display:block}
+.card{background:#fff;border:1px solid #e0dfd8;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem}
+.badge{display:inline-block;padding:3px 10px;border-radius:8px;font-size:12px;font-weight:500;margin-bottom:10px}
+.b-bl{background:#E6F1FB;color:#0C447C}.b-am{background:#FAEEDA;color:#633806}
+.b-gr{background:#EAF3DE;color:#27500A}.b-pu{background:#EEEDFE;color:#3C3489}
+.b-co{background:#FAECE7;color:#712B13}
+h3{font-size:16px;font-weight:500;margin-bottom:6px}
+.sub{font-size:14px;color:#5f5e5a;margin-bottom:1.25rem;line-height:1.6}
+.fg{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px;margin-bottom:1rem}
+.fc{height:100px;cursor:pointer;perspective:700px}
+.fi{width:100%;height:100%;position:relative;transition:transform .35s;transform-style:preserve-3d}
+.fc.fl .fi{transform:rotateY(180deg)}
+.ff,.fb{position:absolute;inset:0;border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid #e0dfd8}
+.ff{background:#f1efe8;font-size:18px;font-weight:500;color:#1a1a18}
+.fb{background:#fff;transform:rotateY(180deg);font-size:12px;color:#5f5e5a;line-height:1.5}
+.vtag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;margin:2px;font-weight:500}
+.vex{background:#E6F1FB;color:#0C447C}.vev{background:#FAEEDA;color:#633806}
+.vas{background:#FCEBEB;color:#791F1F}.vdi{background:#EAF3DE;color:#27500A}
+.vou{background:#EEEDFE;color:#3C3489}.vid{background:#E1F5EE;color:#085041}
+.vde{background:#FBEAF0;color:#72243E}.vpr{background:#FAECE7;color:#712B13}
+.vju{background:#F1EFE8;color:#444441}
+.qq{font-size:15px;font-weight:500;margin-bottom:1rem;line-height:1.5;min-height:52px}
+.og{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem}
+.op{padding:10px 14px;border:1px solid #ccc;border-radius:8px;font-size:14px;cursor:pointer;background:#fff;color:#1a1a18;text-align:left;line-height:1.4;font-family:inherit}
+.op:hover{background:#f1efe8}
+.op.ok{border-color:#3B6D11;background:#EAF3DE;color:#27500A}
+.op.no{border-color:#A32D2D;background:#FCEBEB;color:#791F1F}
+.fb2{font-size:14px;min-height:44px;color:#5f5e5a;margin-bottom:.75rem;line-height:1.5}
+.sbar{background:#e8e8e8;border-radius:4px;height:8px;margin-bottom:6px}
+.sf{height:8px;border-radius:4px;background:#1D9E75;transition:width .4s}
+.sl{font-size:13px;color:#5f5e5a}
+.sc{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:1rem}
+.sz{border:1px dashed #ccc;border-radius:8px;min-height:60px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:flex-start}
+.cl{font-size:12px;color:#5f5e5a;font-weight:500;margin-bottom:6px}
+.dc{padding:6px 12px;border-radius:8px;font-size:13px;font-weight:500;cursor:grab;border:1px solid #ccc;background:#f1efe8;color:#1a1a18;user-select:none}
+.dc.dg{opacity:.4}
+.sb2{background:#f1efe8;border-radius:8px;border-left:3px solid #378ADD;padding:12px 14px;font-size:14px;color:#1a1a18;line-height:1.6;margin-bottom:1rem}
+.vh{font-weight:500;color:#185FA5;text-decoration:underline;text-decoration-style:dotted}
+select{width:100%;font-size:14px;padding:6px 8px;border-radius:8px;border:1px solid #ccc;background:#fff;color:#1a1a18;font-family:inherit}
+.rc{font-size:13px;font-weight:500}.rok{color:#27500A}.rno{color:#791F1F}
+.nt{font-size:12px;color:#888;margin-top:.75rem;padding-top:.75rem;border-top:1px solid #e0dfd8}
+button{padding:8px 16px;border:1px solid #ccc;border-radius:8px;font-size:14px;cursor:pointer;background:#fff;color:#1a1a18;font-family:inherit}
+button:hover{background:#f1efe8}
+.tip-box{display:none;margin-top:10px;font-size:14px;color:#5f5e5a;line-height:1.6;background:#f1efe8;padding:10px;border-radius:8px}
+.sort-fb{font-size:14px;color:#5f5e5a;margin-top:.75rem;line-height:1.6}
+.match-fb{font-size:14px;color:#5f5e5a;margin-top:.75rem;line-height:1.6}
+@media(max-width:500px){.og,.sc{grid-template-columns:1fr}.fg{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<h1>Food Technology — NESA verb activities</h1>
+<p class="meta">Preliminary year · Nutrition and Food Quality topics · 5 activities</p>
+
+<div class="nav">
+  <button class="nb on" onclick="sw(0)">1. Flip cards</button>
+  <button class="nb" onclick="sw(1)">2. Verb quiz</button>
+  <button class="nb" onclick="sw(2)">3. Cognitive sort</button>
+  <button class="nb" onclick="sw(3)">4. Spot the verb</button>
+  <button class="nb" onclick="sw(4)">5. Match it up</button>
+</div>
+
+<!-- ACTIVITY 1 -->
+<div id="p0" class="pnl on">
+  <span class="badge b-bl">Warm-up · 5 min · pairs or whole class</span>
+  <h3>Flip and reveal</h3>
+  <p class="sub">Tap any card to flip it and reveal the NESA definition. Before flipping, try to explain the verb in your own words using a Nutrition or Food Quality example.</p>
+  <div class="fg" id="fcg"></div>
+  <p class="nt">Definitions sourced from the official NESA glossary of key words.</p>
+</div>
+
+<!-- ACTIVITY 2 -->
+<div id="p1" class="pnl">
+  <span class="badge b-am">Quiz · 10 min · individual</span>
+  <h3>Verb quiz</h3>
+  <p class="sub">Each question describes a task set in Nutrition or Food Quality content. Choose the directive verb that matches exactly what the question is asking you to do.</p>
+  <div class="sbar"><div class="sf" id="qb" style="width:0%"></div></div>
+  <div class="sl" id="ql">Question 1 of 10</div><br>
+  <div class="qq" id="qq"></div>
+  <div class="og" id="qo"></div>
+  <div class="fb2" id="qf"></div>
+  <button onclick="nxtQ()" id="qn" style="display:none">Next question →</button>
+</div>
+
+<!-- ACTIVITY 3 -->
+<div id="p2" class="pnl">
+  <span class="badge b-gr">Sorting · 10 min · pairs</span>
+  <h3>Cognitive demand sort</h3>
+  <p class="sub">Drag each verb into the correct column. Think: are you just naming something, making a connection, or making a judgement? Discuss with your partner before you drop.</p>
+  <div class="sc">
+    <div><div class="cl">Low — recall or name</div><div class="sz" id="zl"></div></div>
+    <div><div class="cl">Mid — connect or process</div><div class="sz" id="zm"></div></div>
+    <div><div class="cl">High — judge or weigh up</div><div class="sz" id="zh"></div></div>
+  </div>
+  <div id="bnk" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1rem"></div>
+  <div style="display:flex;gap:10px">
+    <button onclick="chkSort()">Check my sort</button>
+    <button onclick="rstSort()">Reset</button>
+  </div>
+  <div class="sort-fb" id="sof"></div>
+</div>
+
+<!-- ACTIVITY 4 -->
+<div id="p3" class="pnl">
+  <span class="badge b-pu">Spot the verb · 8 min · individual</span>
+  <h3>Spot the verb, decode the task</h3>
+  <p class="sub">Each question comes from the Nutrition and Food Quality topics. The directive verb is underlined. Click the button to reveal a coaching tip about what your response needs to include.</p>
+  <div id="scns"></div>
+</div>
+
+<!-- ACTIVITY 5 -->
+<div id="p4" class="pnl">
+  <span class="badge b-co">Matching · 8 min · pairs</span>
+  <h3>Match the response to the verb</h3>
+  <p class="sub">Read each student response extract. It was written in response to a Nutrition or Food Quality question. Match it to the verb that best describes the approach the student used.</p>
+  <div id="mps"></div>
+  <div style="display:flex;gap:10px;margin-top:.5rem">
+    <button onclick="chkM()">Check answers</button>
+    <button onclick="rstM()">Reset</button>
+  </div>
+  <div class="match-fb" id="mf"></div>
+</div>
+
+<script>
+const VB=[
+  {v:'explain',cls:'vex',def:'Make a relationship or process clear — show the how and why, not just the what.'},
+  {v:'evaluate',cls:'vev',def:'Weigh up evidence, make a judgement and reach a conclusion. More than pros and cons — you must decide.'},
+  {v:'assess',cls:'vas',def:'Make a judgement of value, quality or effectiveness based on evidence.'},
+  {v:'discuss',cls:'vdi',def:'Present arguments for and against, exploring multiple perspectives with evidence.'},
+  {v:'outline',cls:'vou',def:'Give the main features or general principles — broad strokes, no deep detail.'},
+  {v:'identify',cls:'vid',def:'Name or recognise a specific feature, factor or example. No explanation required.'},
+  {v:'describe',cls:'vde',def:'Give the characteristics and features of something in detail.'},
+  {v:'propose',cls:'vpr',def:'Put forward a plan or recommendation with reasons — you are creating something.'},
+  {v:'justify',cls:'vju',def:'Give reasons and evidence to show why a choice or view is correct.'},
+];
+const fcg=document.getElementById('fcg');
+VB.forEach(item=>{
+  fcg.innerHTML+=`<div class="fc" onclick="this.classList.toggle('fl')">
+    <div class="fi">
+      <div class="ff"><span class="${item.cls} vtag" style="font-size:15px;padding:6px 14px">${item.v}</span></div>
+      <div class="fb">${item.def}</div>
+    </div>
+  </div>`;
+});
+
+const QS=[
+  {q:'A student is asked to name two nutrients that are important for adolescent bone development.',opts:['identify','explain','evaluate','describe'],a:0,fb:'Identify = name only. No explanation needed — just calcium and vitamin D. One mark per correct nutrient.'},
+  {q:'The question asks: "Give the characteristics and features of type 2 diabetes as a diet-related disorder, including how it develops."',opts:['outline','describe','assess','propose'],a:1,fb:'Describe = characteristics and features in detail. Cover what type 2 diabetes is, how insulin resistance develops, and the role of diet — not just a list of symptoms.'},
+  {q:'A student is asked to "give the main features of sensory evaluation as a food quality assessment tool, without going into depth."',opts:['outline','evaluate','justify','discuss'],a:0,fb:'Outline = main features only. Mention the types of tests and their general purpose — do not write a detailed explanation of each one.'},
+  {q:'The question asks students to show the relationship between a high-fat diet and cardiovascular disease, including the role of LDL cholesterol.',opts:['identify','describe','explain','assess'],a:2,fb:'Explain = show the how and why. Connect high fat intake → raised LDL → atherosclerosis → CVD. Use "because", "therefore" and "this leads to" throughout.'},
+  {q:'Students must "give reasons and evidence to support their choice of food preservation method for extending the shelf life of fresh milk."',opts:['describe','justify','outline','discuss'],a:1,fb:'Justify = support your choice with evidence. Name the method (e.g. pasteurisation), explain why it is appropriate for milk, and show why alternatives would be less suitable.'},
+  {q:'A question asks students to "present both the advantages and limitations of using dietary supplements to address iron-deficiency anaemia in adolescent girls."',opts:['discuss','outline','identify','propose'],a:0,fb:'Discuss = both sides with evidence. Present the case for supplements AND against (cost, side effects, risk of overdose, better achieved through diet) — then tie it together.'},
+  {q:'Students are asked to "make a judgement about the effectiveness of sensory evaluation compared to chemical testing as methods of food quality assessment."',opts:['describe','outline','assess','identify'],a:2,fb:'Assess = judge effectiveness. Compare both methods against the criterion of effectiveness, weigh their strengths and weaknesses, and reach a clear judgement.'},
+  {q:'A student must "weigh up the evidence for and against adding iodine to salt as a public health strategy, and reach a conclusion."',opts:['identify','propose','describe','evaluate'],a:3,fb:'Evaluate = weigh evidence AND conclude. Present the public health case for fortification against concerns (overfortification risk, individual needs) and give a final judgement.'},
+  {q:'The question reads: "Put forward a meal plan for a pregnant woman in her first trimester, with reasons for each food choice."',opts:['propose','describe','outline','justify'],a:0,fb:'Propose = create and recommend with reasons. You are designing something new and explaining why each element meets first-trimester nutritional needs — folate, iron, calcium etc.'},
+  {q:'Students are asked to "show how the HACCP system identifies and controls a biological hazard during the pasteurisation of orange juice."',opts:['outline','identify','describe','explain'],a:3,fb:'Explain = show the process and the relationship. Walk through how HACCP identifies the critical control point, what the hazard is, and why the temperature/time parameters control it.'},
+];
+let qi=0,sc=0,ans=false;
+function rQ(){
+  const q=QS[qi];
+  document.getElementById('qq').textContent=q.q;
+  document.getElementById('ql').textContent=`Question ${qi+1} of ${QS.length} · Score: ${sc}`;
+  document.getElementById('qb').style.width=Math.round((qi/QS.length)*100)+'%';
+  document.getElementById('qf').textContent='';
+  document.getElementById('qn').style.display='none';
+  ans=false;
+  const og=document.getElementById('qo');og.innerHTML='';
+  q.opts.forEach((o,i)=>{og.innerHTML+=`<button class="op" onclick="pkQ(${i})">${o}</button>`;});
+}
+function pkQ(i){
+  if(ans)return;ans=true;
+  const q=QS[qi];
+  const bs=document.querySelectorAll('.op');
+  bs[i].classList.add(i===q.a?'ok':'no');
+  bs[q.a].classList.add('ok');
+  if(i===q.a)sc++;
+  document.getElementById('qf').textContent=(i===q.a?'Correct! ':'Not quite — ')+q.fb;
+  document.getElementById('qn').style.display='inline-block';
+  bs.forEach(b=>b.style.cursor='default');
+}
+function nxtQ(){
+  qi++;
+  if(qi>=QS.length){
+    document.getElementById('qq').textContent=`Finished! You scored ${sc} out of ${QS.length}.`;
+    document.getElementById('qo').innerHTML='';
+    document.getElementById('qf').textContent=sc>=8?'Excellent — you have a strong grasp of what each verb demands in context.':sc>=5?'Good start. Review the verbs you missed using the flip cards in Activity 1, then try again.':'Keep going — use the flip cards daily and work through Activity 4 to see what each verb looks like in a real response.';
+    document.getElementById('qn').style.display='none';
+    document.getElementById('ql').textContent=`Final score: ${sc}/${QS.length}`;
+    document.getElementById('qb').style.width='100%';
+    return;
+  }rQ();
+}
+rQ();
+
+const SV=[
+  {v:'identify',lv:'low'},{v:'outline',lv:'low'},{v:'describe',lv:'mid'},
+  {v:'explain',lv:'mid'},{v:'propose',lv:'mid'},{v:'justify',lv:'mid'},
+  {v:'discuss',lv:'high'},{v:'assess',lv:'high'},{v:'evaluate',lv:'high'},
+];
+const SA={identify:'low',outline:'low',describe:'mid',explain:'mid',propose:'mid',justify:'mid',discuss:'high',assess:'high',evaluate:'high'};
+let drag=null;
+function iSort(){
+  document.getElementById('bnk').innerHTML='';
+  ['zl','zm','zh'].forEach(id=>document.getElementById(id).innerHTML='');
+  document.getElementById('sof').textContent='';
+  SV.forEach(item=>{
+    const c=document.createElement('div');
+    c.className='dc';c.textContent=item.v;c.draggable=true;c.dataset.v=item.v;
+    c.addEventListener('dragstart',()=>{drag=c;setTimeout(()=>c.classList.add('dg'),0);});
+    c.addEventListener('dragend',()=>{c.classList.remove('dg');drag=null;});
+    document.getElementById('bnk').appendChild(c);
+  });
+  ['zl','zm','zh'].forEach(id=>{
+    const el=document.getElementById(id);
+    el.addEventListener('dragover',e=>e.preventDefault());
+    el.addEventListener('drop',e=>{e.preventDefault();if(drag)el.appendChild(drag);});
+  });
+  const bk=document.getElementById('bnk');
+  bk.addEventListener('dragover',e=>e.preventDefault());
+  bk.addEventListener('drop',e=>{e.preventDefault();if(drag)bk.appendChild(drag);});
+}
+function chkSort(){
+  let c=0;
+  ['low','mid','high'].forEach(lv=>{
+    const id={low:'zl',mid:'zm',high:'zh'}[lv];
+    document.getElementById(id).querySelectorAll('.dc').forEach(chip=>{
+      if(SA[chip.dataset.v]===lv){chip.style.background='#EAF3DE';chip.style.color='#27500A';c++;}
+      else{chip.style.background='#FCEBEB';chip.style.color='#791F1F';}
+    });
+  });
+  document.getElementById('sof').innerHTML=`You placed ${c} of ${SV.length} correctly.<br><br>
+    <strong>Low (recall/name):</strong> identify, outline<br>
+    <strong>Mid (connect/process):</strong> describe, explain, propose, justify<br>
+    <strong>High (judge/weigh):</strong> discuss, assess, evaluate`;
+}
+function rstSort(){iSort();}
+iSort();
+
+const SCNS=[
+  {q:'<span class="vh">Identify</span> TWO nutrients at risk of deficiency in a vegan adolescent\'s diet.',tip:'Identify = name only. List two nutrients (e.g. vitamin B12 and iron). No explanation of why they are at risk is needed — that would be "explain". One mark per correct answer.'},
+  {q:'<span class="vh">Describe</span> the physical effects of iron-deficiency anaemia on the body.',tip:'Describe = give characteristics and features in detail. Cover the symptoms (fatigue, pale skin, reduced concentration, breathlessness) and the physical mechanisms (reduced haemoglobin → less oxygen to tissues). Use full sentences and food technology vocabulary.'},
+  {q:'<span class="vh">Explain</span> how excessive sodium intake contributes to the development of hypertension.',tip:'Explain = show the relationship. Trace the pathway: high sodium → osmosis draws water into blood → increased blood volume → greater pressure on vessel walls → hypertension. Use "because", "this causes" and "as a result" to link each step.'},
+  {q:'<span class="vh">Justify</span> the use of pasteurisation as a quality control measure for milk, with reference to the pathogens it targets.',tip:'Justify = support your choice with evidence. State that pasteurisation (72°C for 15 seconds) destroys pathogens such as Listeria and Salmonella without significantly altering nutritional value — making it the most practical option for commercial dairy production.'},
+  {q:'<span class="vh">Evaluate</span> the effectiveness of the Australian Guide to Healthy Eating as a strategy for improving the nutritional health of Australians.',tip:'Evaluate = weigh up AND conclude. Strengths: evidence-based, accessible, guides food choices. Limitations: relies on individual motivation, not culturally adapted for all groups. Conclusion: effective as guidance but insufficient alone — requires supporting policy and education.'},
+];
+const sc2=document.getElementById('scns');
+SCNS.forEach((s,i)=>{
+  sc2.innerHTML+=`<div class="card">
+    <div style="font-size:13px;color:#5f5e5a;margin-bottom:6px">Question ${i+1}</div>
+    <div class="sb2">${s.q}</div>
+    <button onclick="tg(${i})" id="stb${i}">What does this verb demand?</button>
+    <div class="tip-box" id="st${i}">${s.tip}</div>
+  </div>`;
+});
+function tg(i){
+  const t=document.getElementById('st'+i),b=document.getElementById('stb'+i);
+  const v=t.style.display==='block';
+  t.style.display=v?'none':'block';
+  b.textContent=v?'What does this verb demand?':'Hide coaching tip';
+}
+
+const MP=[
+  {resp:'"Iron is found in red meat, leafy green vegetables and legumes. Vitamin B12 is found in animal products including meat, eggs and dairy. Vitamin D is obtained through sunlight exposure and is found in fatty fish and fortified foods."',v:'describe',hint:'The student lists characteristics and food sources — features and detail, no cause-effect or judgement. This is describe.'},
+  {resp:'"Consuming foods high in saturated fat raises LDL cholesterol levels in the blood. This causes plaque to build up on artery walls, narrowing them and reducing blood flow. Over time, this increases blood pressure and the risk of a heart attack or stroke — a condition known as cardiovascular disease."',v:'explain',hint:'The student shows a clear cause-and-effect chain using linking language (causes, over time, increases). This is explain, not describe.'},
+  {resp:'"HACCP should be used as the preferred quality management system. It is more effective than general quality control because it is preventative rather than reactive — identifying hazards before they cause contamination. For example, identifying 72°C for 15 seconds as the critical control point in pasteurisation prevents pathogens from surviving. This makes it the most appropriate system for high-risk food production."',v:'justify',hint:'The student makes a clear recommendation and supports it with specific evidence and reasoning. This is justify.'},
+  {resp:'"Dietary supplements can be beneficial for individuals who cannot meet their nutrient needs through food alone, such as pregnant women requiring additional folate. However, over-reliance on supplements can be costly and may lead to toxicity. Furthermore, whole foods provide additional protective compounds such as fibre and phytochemicals that supplements cannot replicate. Overall, supplements are a useful complement to a healthy diet but should not replace one."',v:'evaluate',hint:'The student presents evidence on both sides and reaches a conclusion. This is evaluate — not discuss, which would stop before concluding.'},
+  {resp:'"Sensory evaluation has strengths and limitations as a food quality assessment tool. Its strengths include low cost and the ability to detect subtle flavour differences that chemical testing cannot. However, it is subjective and results vary between assessors. Chemical testing is more objective and repeatable. Both methods have a place: sensory evaluation suits consumer-facing testing while chemical testing suits regulatory compliance."',v:'assess',hint:'The student weighs both methods against criteria and makes a judgement about their suitability in different contexts. This is assess.'},
+];
+const vopts=['identify','outline','describe','explain','justify','discuss','assess','evaluate','propose'];
+const mps=document.getElementById('mps');
+MP.forEach((m,i)=>{
+  mps.innerHTML+=`<div class="card">
+    <div style="font-size:13px;color:#5f5e5a;margin-bottom:6px">Student response ${i+1}</div>
+    <div class="sb2" style="border-left-color:#7F77DD;font-style:italic">${m.resp}</div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <span style="font-size:14px;color:#5f5e5a">This student used the verb:</span>
+      <select id="ms${i}"><option value="">— choose —</option>${vopts.map(v=>`<option>${v}</option>`).join('')}</select>
+      <span id="mr${i}" class="rc"></span>
+    </div>
+    <div id="mh${i}" style="display:none;font-size:13px;color:#5f5e5a;margin-top:8px;background:#f1efe8;padding:8px;border-radius:8px"></div>
+  </div>`;
+});
+function chkM(){
+  let c=0;
+  MP.forEach((m,i)=>{
+    const sel=document.getElementById('ms'+i).value;
+    const res=document.getElementById('mr'+i);
+    const hint=document.getElementById('mh'+i);
+    if(!sel){res.textContent='';hint.style.display='none';return;}
+    if(sel===m.v){
+      res.textContent='Correct';res.className='rc rok';
+      hint.style.display='none';c++;
+    }else{
+      res.textContent='Not quite';res.className='rc rno';
+      hint.textContent=m.hint;hint.style.display='block';
+    }
+  });
+  document.getElementById('mf').textContent=`${c} of ${MP.length} matched correctly. Look at how each response is structured — does it list, connect, support or judge?`;
+}
+function rstM(){
+  MP.forEach((_,i)=>{
+    document.getElementById('ms'+i).value='';
+    document.getElementById('mr'+i).textContent='';
+    document.getElementById('mr'+i).className='rc';
+    document.getElementById('mh'+i).style.display='none';
+  });
+  document.getElementById('mf').textContent='';
+}
+
+function sw(n){
+  document.querySelectorAll('.pnl').forEach((p,i)=>p.classList.toggle('on',i===n));
+  document.querySelectorAll('.nb').forEach((b,i)=>b.classList.toggle('on',i===n));
+}
+</script>
+</body>
+</html>
